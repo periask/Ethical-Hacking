@@ -20,10 +20,10 @@ awk '
 
     in_load_video_function == 1 && $1 ~ /^}$/ {
         in_load_video_function = 0
-        print "  outb 0x728 1"
-        print "  outb 0x710 2"
-        print "  outb 0x740 2"
-        print "  outb 0x750 0"
+        print "  outb 0x728 1 # Switch select"
+        print "  outb 0x710 2 # Switch display"
+        print "  outb 0x740 2 # Switch DDC"
+        print "  outb 0x750 0 # Power down discrete graph"
     }
 
     $2 ~ /^load_video$/ {
